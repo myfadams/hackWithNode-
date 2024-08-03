@@ -1,0 +1,48 @@
+use Fadl3364622;
+select * from  Works_on;
+
+--list databses
+exec sp_databases;
+
+select * from Department
+-- select database
+use Fadl3364622;
+
+--find tables in active database
+select name from sys.tables; 
+
+--selecting particlar tuples or rows
+select Bdate,Addr from Employee where Fname='John' and Initials='B' and Lname='smith';
+
+select Bdate,Addr from Employee where Initials='B';
+
+--select row wiht the help of other tablese 
+select Fname,Lname,Addr from Employee,Department where Dname='Research' and Dnumber=Dno;
+
+select Fname,Lname,Addr from Employee,Department where Dname='Research' and Dnumber=Dno;
+select Fname,Lname,Addr from Employee,Department where Dname='Hardware' and Dnumber=Dno;
+select Fname,Lname,Addr from Employee,Department where Dname='Software' and Dnumber=Dno;
+
+select Fname,Lname,Addr from Employee,Department where Dname='Research' and Dnumber=Dno or Dname='Hardware' and Dnumber=Dno or Dname='Software'and Dnumber=Dno;
+
+select * from project;
+-- so this wrong query becuase the condtion is listing tuples from the employee table when The department name matches, 1) it lists all 40 employees when Dname matches with 'Hardware' and list another 40 when Dname matches 'software'
+select Fname,Lname,Addr from Employee,Department where Dname='Research'  or Dname='Hardware' or Dname='Software';-- or Dname='Sales';
+
+select Pno,Dnum,Pname from Project where Plocation='Stafford';
+
+select Pno,Dnum,Pname,Dname,Dnum,Fname,Addr,Bdate from Project,Department,Employee where Plocation='Stafford' And Dnum=Dnumber and Mngr_ssn=Ssn;
+select * from Dept_loc    gg vgg 
+select Pname,Dname,Fname from Project,Department,Employee where Plocation='Atlanta' And Dnum=Dnumber and Mngr_ssn=Ssn or Plocation='Houston' And Dnum=Dnumber and Mngr_ssn=Ssn or Plocation='Dallas' And Dnum=Dnumber and Mngr_ssn=Ssn;
+
+select Pname,Fname,Dname from Project,Department,Employee,Dept_loc 
+where Dlocation='Atlanta' And Project.Dnum=Dnumber and Mngr_ssn=Ssn And Dept_loc.Dnum=Dnumber 
+or Dlocation='Houston' And Project.Dnum=Dnumber and Mngr_ssn=Ssn And Dept_loc.Dnum=Dnumber 
+or Dlocation='Dallas' And Project.Dnum=Dnumber and Mngr_ssn=Ssn And Dept_loc.Dnum=Dnumber;
+
+select *from Works_on
+select * from Employee
+select * from Project
+select Fname,Lname, Dname,Pname,Plocation
+from Employee,Project,Department, Works_on
+where Works_on.Essn=Employee.Ssn and Dnumber=Dno and Dnum=Dnumber;

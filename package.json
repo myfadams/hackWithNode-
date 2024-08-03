@@ -1,0 +1,20 @@
+{
+  "name": "hacking",
+  "version": "1.0.0",
+  "description": "",
+  "main": "HackingClient.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.8",
+    "body-passer": "^1.0.0",
+    "child_process": "^1.0.2",
+    "express": "^4.19.2",
+    "inquirer": "^9.2.17",
+    "prompt-sync": "^4.2.0"
+  }
+}

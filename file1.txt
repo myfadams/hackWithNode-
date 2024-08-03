@@ -1,0 +1,6 @@
+Sub RunNodeScript()
+
+	Dim strPath As string
+	strPath="C:\Users\test\Documents\learning\Hacking\HackingClient.js"
+	shell("cmd /c node " & strPath, vbHidden)
+End Sub
